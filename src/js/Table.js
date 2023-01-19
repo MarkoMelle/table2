@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 export default class Table {
   bindToDOM(container) {
     if (!(container instanceof HTMLElement)) {
@@ -59,7 +61,7 @@ export default class Table {
       this.container.querySelector('.imdb').textContent += '⬇️';
     });
 
-    this.container.querySelector('.id').click()
+    this.container.querySelector('.id').click();
   }
 
   getSort(filter) {
@@ -73,7 +75,7 @@ export default class Table {
       } if (filter === 'imdb') {
         return Arr.sort((a, b) => a.imdb - b.imdb);
       } if (filter === 'title') {
-        return Arr.sort((a, b) => a.title.slice(0,1).charCodeAt() - b.title.slice(0,1).charCodeAt());
+        return Arr.sort((a, b) => a.title.slice(0, 1).charCodeAt() - b.title.slice(0, 1).charCodeAt());
       }
       return Arr;
     };
@@ -99,44 +101,3 @@ export default class Table {
     return trArr;
   }
 }
-//   getSort(filter) {
-//     let trArr = [];
-
-//     this.data.forEach((i) => {
-//       const tr = document.createElement('tr');
-
-//       const id = document.createElement('td');
-//       const title = document.createElement('td');
-//       const year = document.createElement('td');
-//       const imdb = document.createElement('td');
-
-//       tr.dataset.id = i.id;
-//       tr.dataset.title = i.title;
-//       tr.dataset.year = i.year;
-//       tr.dataset.imdb = i.imdb.toFixed(2);
-
-//       id.textContent = tr.dataset.id;
-//       title.textContent = tr.dataset.title;
-//       year.textContent = `(${tr.dataset.year})`;
-//       imdb.textContent = `imdb:${tr.dataset.imdb}`;
-
-//       tr.append(id, title, year, imdb);
-//       trArr.push(tr);
-//     });
-
-//     const filterHandler = (Arr) => {
-//       if (filter === 'id') {
-//         return Arr.sort((a, b) => a.dataset.id - b.dataset.id);
-//       } if (filter === 'year') {
-//         return Arr.sort((a, b) => a.dataset.year - b.dataset.year);
-//       } if (filter === 'imdb') {
-//         return Arr.sort((a, b) => a.dataset.imdb - b.dataset.imdb);
-//       } if (filter === 'title') {
-//         return Arr.sort();
-//       }
-//       return Arr;
-//     };
-//     trArr = filterHandler(trArr, filter);
-//     
-//   }
-// }
